@@ -1,0 +1,14 @@
+.control{
+  flex:4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  padding:10px;
+  .text{
+    width:100px;
+    height: 40px;
+    background-color: lightgray;
+  }
+}

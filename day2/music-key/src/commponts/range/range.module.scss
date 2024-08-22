@@ -1,0 +1,24 @@
+.range{
+  width:100%;
+  height:10px;
+  background-color: black;
+  border-radius: 10px;
+  position: relative;
+  i{
+    width:10px;
+    height:30px;
+    background-color: blue;
+    position: absolute;
+    top:-10px;
+  }
+  p{
+    position: absolute;
+    height:100%;
+    overflow: hidden;
+    span{
+      height:100%;
+      display: block;
+      background-image: linear-gradient(to right,red,blue);
+    }
+  }
+}
