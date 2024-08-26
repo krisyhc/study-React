@@ -1,0 +1,26 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  main {
+    flex: 1;
+    overflow: hidden;
+
+  }
+  footer {
+    height: 50px;
+    border-top: 1px solid;
+    display: flex;
+    a {
+      flex: 1;
+      line-height: 50px;
+      text-align: center;
+    }
+    :global {
+      .active {
+       background-color: tomato;
+      }
+    }
+  }
+}
+
