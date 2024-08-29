@@ -1,73 +1,21 @@
-import  { useState, useEffect } from 'react';
-import './index.module.scss';
-
-
-const Child = () => {
-  const [count, setCount] = useState(0);
-
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setCount(prev => {
-  //       console.log('组件更新', prev)
-  //       if (prev + 1 >= 50) {
-  //         clearInterval(timer);
-  //       }
-  //       return prev + 1;
-  //     })
-  //   },1000)
-
-  //   return () => {
-  //     console.log('组件销毁清除定时器')
-  //     clearInterval(timer);
-  //   }
-  // },[])
-
-  useEffect(() => {
-    const keydown = e => {
-      console.log('键盘按下',e.key)
-    }
-    window.addEventListener('keydown', keydown);
-    return () => {
-      window.removeEventListener('keydown', keydown);
-    }
-  })
-
-  return (
-    <div>
-      <h1>Child</h1>
-      <p>count: {count}</p>
-      <button onClick={() => setCount(count - 1)}>decrease</button>
-    </div>
-  );
-}
-
-
+import React from 'react';
+import style from './App.module.scss';
+import Search from './commpoents/search/Search';
+import DefauList from './commpoents/defaultlist/DefauList';
+import Suggest from './commpoents/suggest/Suggest';
+import Result from './commpoents/result/Result';
 
 const App = () => {
- const [title, setTitle] = useState("App标题")
- const [ banners, setBsnners] = useState([])
-
- const getBsnners = async () => {
-  const res = await fetch('https://zyxcl.xyz/music/api/banner')
-  .then(res => res.json())
-  console.log(res)
-  setBsnners(res.banners)
- }
-
- useEffect(() => {
-  getBsnners()
- },[])
-
+  const [listType, setListType] = useState('0');//0 0代表默认列表 1代表搜索建议，2代表搜索结果
+  const [searchValue, setSearchValue] = useState('');//搜索内容
   return (
-    <div className="App">
-      <h1>{title}</h1>
-      <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
-      <hr />
-      <Child />
-      <div>
-        <h2>banners</h2>
-        {banners.map((item) => <p key={item}>{item.imageUrl}</p>)}
-      </div>
+    <div className={style.App}>
+      <Search 
+      value={searchValue}
+      />
+      <DefauList />
+      <Suggest />
+      <Result />
     </div>
   );
 };
