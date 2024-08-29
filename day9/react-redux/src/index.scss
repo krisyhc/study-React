@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray;
+  padding: 10px 10px;
+  color: #fff;
+  a{
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+    &.active{
+       color: tomato;
+
+      }
+  }
+ 
+}
